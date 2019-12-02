@@ -1,0 +1,17 @@
+.kb-queue-now-playing-label {
+  flex: none;
+  margin: auto;
+  padding-right: 15px;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+}
+
+.kb-queue-now-playing {
+  background-color: #22aa44;
+  border-bottom: 1px solid #303030;
+}
+
+.kb-queue-now-playing:hover {
+  background-color: #20a842;
+}

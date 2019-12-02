@@ -7,7 +7,7 @@ class KBSearchResultList extends Component {
 
   constructor(props) {
     super(props);
-    this.rootRef = React.createRef();
+    this.rootRef = React.createRef()
     this.handleScroll = this.handleScroll.bind(this)
   }
 

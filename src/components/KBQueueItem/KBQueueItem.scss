@@ -1,0 +1,79 @@
+.kb-queue-item {
+  min-height: 50px;
+  background-color: #262626;
+  border-bottom: 1px solid #202020;
+  padding: 6px 0px 2px 3px;
+}
+
+.kb-queue-item:hover {
+  background-color: #222222;
+}
+
+.kb-queue-item-drag-handle {
+  flex: none;
+  margin: auto;
+  text-align: center;
+  color: #353535;
+  font-size: 20px;
+  padding: 0px 10px 0px 10px;
+}
+
+.kb-queue-item-drag-handle:hover {
+  color: #f0f0f0;
+}
+
+.kb-queue-item-delete {
+  flex: none;
+  margin: auto;
+  text-align: center;
+  color: #353535;
+  font-size: 14px;
+  padding: 0px 10px 0px 10px;
+}
+
+.kb-queue-item-delete:hover {
+  color: #d02020;
+}
+
+.kb-queue-item-container {
+  display: flex;
+  flex-direction: row;
+  padding-left: 5px;
+}
+
+.kb-queue-item-image-container {
+  flex: none;
+  margin: auto;
+}
+
+.kb-queue-item-image {
+  flex: none;
+  width: 54px;
+  height: 54px;
+}
+
+.kb-queue-item-info-container {
+  flex: auto;
+  display: flex;
+  flex-direction: column;
+  padding-left: 15px;
+  color: #f0f0f0;
+}
+
+.kb-queue-item-name {
+  flex: none;
+  text-align: left;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.kb-queue-item-details {
+  flex: none;
+  text-align: left;
+  font-size: 11px;
+}
+
+.kb-queue-item-info-pad {
+  flex:auto;
+}
+

@@ -10,16 +10,23 @@ import KBSearchContainer from './containers/KBSearchContainer'
 import 'react-toastify/dist/ReactToastify.css'
 import './App.scss'
 
+const titles = {
+  search: 'Search',
+  queue: 'Queue',
+  now_playing: 'Now Playing'
+}
+
 class App extends Component {
   render() {
 
     const searchBar = this.props.currentTab === tabs.SEARCH ? <KBSearchContainer/> : null
+    const title = (this.props.currentTab === tabs.SEARCH) ? "" : titles[this.props.currentTab]
 
     return (
       <div className="App">
         <KBNavBar type='primary'>Kickback</KBNavBar>
         <KBNavBar type='secondary'>
-          {searchBar}
+          {title}{searchBar}
           <KBNavBarSpacer/>
           <KBNavBarButton active={this.props.currentTab === tabs.SEARCH} icon='search' onClick={() => {this.props.updateTab(tabs.SEARCH)}}/>
           <KBNavBarButton active={this.props.currentTab === tabs.QUEUE} icon='list-alt' onClick={() => {this.props.updateTab(tabs.QUEUE)}}/>
@@ -27,7 +34,6 @@ class App extends Component {
         </KBNavBar>
         <KBControlPanelContainer/>
         <ToastContainer
-          style="kb-toast-container"
           toastClassName="kb-toast"
           position="bottom-center"
           autoClose={3000}

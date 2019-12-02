@@ -1,17 +1,26 @@
 import { connect } from 'react-redux'
-import fetchItems from '../../actions/queue/fetchItems'
+import deleteItem from '../../actions/queue/deleteItem'
+import reorderItems from '../../actions/queue/reorderItems'
+import updateScrollPosition from '../../actions/queue/updateScrollPosition'
 import KBQueue from '../../components/KBQueue'
 
 const mapStateToProps = state => {
   return {
-    items: state.queue.data.items || [],
+    tracks: state.queue.data.items || [],
+    scrollPosition: state.queue.scrollPosition
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchItems: sessionId => {
-      dispatch(fetchItems(sessionId))
+    onDelete: songId => {
+      dispatch(deleteItem(songId))
+    },
+    onReorder: (fromId, toId) => {
+      dispatch(reorderItems(fromId, toId))
+    },
+    onScroll: scrollPosition => {
+      dispatch(updateScrollPosition(scrollPosition))
     }
   }
 }
