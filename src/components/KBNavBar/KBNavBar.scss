@@ -1,0 +1,23 @@
+@import '../../utilities/variables.scss';
+
+.kb-nav-bar {
+  flex: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: $extra-light-grey;
+  padding: 0px 15px 0px 15px;
+}
+
+.kb-nav-bar-primary {
+  background-color: $dark-grey-10;
+  height: 60px;
+  font-size: 26px;
+  font-family: 'Staatliches', cursive;
+  text-align: left;
+}
+
+.kb-nav-bar-secondary {
+  background-color: $dark-grey-9;
+  height: 40px;
+}

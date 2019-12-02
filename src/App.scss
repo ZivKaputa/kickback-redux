@@ -1,0 +1,49 @@
+@import './utilities/variables.scss';
+
+.App {
+  height: 100vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #09d3ac;
+}
+
+.kb-toast {
+  background-color: rgba(255,255,255,0.85);
+  color: $dark-grey-10;
+}
+
+.kb-toast-container {
+  // Purposely empty
+}
+
+.kb-main-area {
+  display: flex;
+  flex-direction: row;
+  flex: auto;
+  min-height: 0;
+}
+
+.kb-menu {
+  width: 40px;
+  background-color: $primary-green;
+  flex: none;
+}

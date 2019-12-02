@@ -1,0 +1,15 @@
+@import '../../utilities/variables.scss';
+
+.kb-nav-bar-button {
+  display: flex;
+  flex: none;
+  width: 30px;
+}
+
+.kb-nav-bar-button-active {
+  color: $primary-green;
+}
+
+.kb-nav-bar-button-inactive:hover {
+  color: #b0b0b0;
+}
