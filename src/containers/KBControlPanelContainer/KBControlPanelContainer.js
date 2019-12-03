@@ -5,7 +5,9 @@ import updateCurrent from '../../actions/tab/updateCurrent'
 const mapStateToProps = state => {
   return {
     items: state.search.results.items || [],
-    currentTab: state.tab.current
+    currentTab: state.tab.current,
+    isMenuOpen: state.menu.isOpen,
+    isChatOpen: state.chat.isOpen
   }
 }
 

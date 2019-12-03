@@ -8,7 +8,7 @@ export const tabs = {
 
 const DEFAULT_STATE = tabs.QUEUE
 
-export default function id(state = DEFAULT_STATE, action) {
+export default function current(state = DEFAULT_STATE, action) {
   switch (action.type) {
     case TAB_UPDATE_CURRENT:
       return action.currentTab

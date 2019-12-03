@@ -4,4 +4,32 @@
   flex-direction: row;
   flex: auto;
   min-height: 0;
+  min-width: 0;
 }
+
+.kb-center-control {
+  display: flex;
+  flex-direction: column;
+  flex: auto;
+}
+
+.kb-left-control {
+  width: 300px;
+  background-color: red;
+  display: flex;
+  flex-direction: column;
+  flex: none;
+}
+
+.kb-right-control {
+  width: 300px;
+  background-color: red;
+  display: flex;
+  flex-direction: column;
+  flex: none;
+}
+
+
+
+
+

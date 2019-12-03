@@ -2,36 +2,16 @@ import React, { Component } from 'react'
 import logo from './logo.svg'
 import KBControlPanelContainer from './containers/KBControlPanelContainer'
 import KBNavBar from './components/KBNavBar'
-import KBNavBarButton from './components/KBNavBarButton'
-import KBNavBarSpacer from './components/KBNavBarSpacer'
 import { ToastContainer } from 'react-toastify'
-import {tabs} from './reducers/tab/current.js'
-import KBSearchContainer from './containers/KBSearchContainer'
 import 'react-toastify/dist/ReactToastify.css'
 import './App.scss'
-
-const titles = {
-  search: 'Search',
-  queue: 'Queue',
-  now_playing: 'Now Playing'
-}
 
 class App extends Component {
   render() {
 
-    const searchBar = this.props.currentTab === tabs.SEARCH ? <KBSearchContainer/> : null
-    const title = (this.props.currentTab === tabs.SEARCH) ? "" : titles[this.props.currentTab]
-
     return (
       <div className="App">
         <KBNavBar type='primary'>Kickback</KBNavBar>
-        <KBNavBar type='secondary'>
-          {title}{searchBar}
-          <KBNavBarSpacer/>
-          <KBNavBarButton active={this.props.currentTab === tabs.SEARCH} icon='search' onClick={() => {this.props.updateTab(tabs.SEARCH)}}/>
-          <KBNavBarButton active={this.props.currentTab === tabs.QUEUE} icon='list-alt' onClick={() => {this.props.updateTab(tabs.QUEUE)}}/>
-          <KBNavBarButton active={this.props.currentTab === tabs.NOW_PLAYING} icon='volume-up' onClick={() => {this.props.updateTab(tabs.NOW_PLAYING)}}/>
-        </KBNavBar>
         <KBControlPanelContainer/>
         <ToastContainer
           toastClassName="kb-toast"

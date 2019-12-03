@@ -2,20 +2,19 @@
 
 .kb-now-playing {
   background-color: #262626;
-  width: 100vw;
   display: flex;
   flex-direction: row;
+  flex: auto;
   align-content: center;
 }
 
 .kb-now-playing-panel {
-  margin-top: 50px;
-  flex: none;
   display: flex;
   flex-direction: column;
-  width: 400px;
   background-color: $primary-green;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: auto;
+  padding: 25px 25px 25px 25px;
 }
 
 .kb-now-playing-image {
@@ -23,7 +22,6 @@
 }
 
 .kb-now-playing-image-container {
-  padding-top: 40px;
   flex: none;
 }
 
@@ -46,7 +44,7 @@
 }
 
 .kb-now-playing-control-container {
-  padding: 15px 0px 15px 0px;
+  padding: 15px 0px 0px 0px;
   flex: none;
   display: flex;
   flex-direction: row;
@@ -54,7 +52,7 @@
 
 .kb-now-playing-button {
   padding: 0px 15px 0px 15px;
-  font-size: 35px;
+  font-size: 30px;
   color: white;
 }
 

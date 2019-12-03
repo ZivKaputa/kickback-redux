@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import KBQueueContainer from '../../containers/KBQueueContainer'
 import KBNowPlayingContainer from '../../containers/KBNowPlayingContainer'
 import KBSearchResultListContainer from '../../containers/KBSearchResultListContainer'
+import KBControlPanelNavBarContainer from '../../containers/KBControlPanelNavBarContainer'
 import {tabs} from '../../reducers/tab/current.js'
 import './KBControlPanel.scss'
 
@@ -27,9 +28,17 @@ export class KBControlPanel extends Component {
         break
     }
 
+    const menu = this.props.isMenuOpen ? <div className='kb-left-control'/> : null
+    const chat = this.props.isChatOpen ? <div className='kb-right-control'/> : null
+
     return (
       <div className='kb-control-panel'>
-        {mainTab}
+        {menu}
+        <div className='kb-center-control'>
+          <KBControlPanelNavBarContainer/>
+          {mainTab}
+        </div>
+        {chat}
       </div>
     )
   }
@@ -37,6 +46,9 @@ export class KBControlPanel extends Component {
 }
 
 KBControlPanel.propTypes = {
+  currentTab: PropTypes.string,
+  isMenuOpen: PropTypes.bool,
+  isChatOpen: PropTypes.bool
 }
 
 export default KBControlPanel

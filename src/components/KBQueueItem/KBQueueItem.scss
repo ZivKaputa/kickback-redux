@@ -18,10 +18,6 @@
   padding: 0px 10px 0px 10px;
 }
 
-.kb-queue-item-drag-handle:hover {
-  color: #f0f0f0;
-}
-
 .kb-queue-item-delete {
   flex: none;
   margin: auto;
@@ -31,8 +27,12 @@
   padding: 0px 10px 0px 10px;
 }
 
-.kb-queue-item-delete:hover {
-  color: #d02020;
+.kb-queue-item-container:hover .kb-queue-item-delete, .kb-queue-item-container-dragging .kb-queue-item-delete {
+  color: #a03030;
+}
+
+.kb-queue-item-container:hover .kb-queue-item-drag-handle, .kb-queue-item-container-dragging .kb-queue-item-drag-handle {
+  color: #f0f0f0;
 }
 
 .kb-queue-item-container {
