@@ -1,6 +1,6 @@
 import { MENU_TOGGLE } from '../../actions/menu/toggleMenu.js'
 
-const DEFAULT_STATE = false
+const DEFAULT_STATE = true
 
 export default function isOpen(state = DEFAULT_STATE, action) {
   switch (action.type) {

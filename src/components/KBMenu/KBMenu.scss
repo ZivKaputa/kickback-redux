@@ -1,0 +1,11 @@
+@import '../../utilities/variables.scss';
+
+.kb-menu {
+  width: 300px;
+  background-color: $dark-grey-9;
+  border-right: 1px solid $dark-grey-10;
+  display: flex;
+  flex-direction: column;
+  flex: none;
+  color: white;
+}

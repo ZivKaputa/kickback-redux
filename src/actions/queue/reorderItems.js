@@ -11,7 +11,8 @@ export default function reorderItems(fromId, toId) {
 
     const afterSongId = (nextItem ? nextItem.song_id : null)
     const afterSongParam = afterSongId ? ("&after_song_id=" + afterSongId) : ""
-    let REORDER_URL = "https://frabric.herokuapp.com/move_song?move_song_id=" + movedItemReorder.song_id + afterSongParam
+    const sessionIdParam = "&session_id=" + getState().session.id
+    let REORDER_URL = "https://frabric.herokuapp.com/move_song?move_song_id=" + movedItemReorder.song_id + afterSongParam + sessionIdParam
 
     dispatch(reorderItemsLocally(fromId, toId))
 

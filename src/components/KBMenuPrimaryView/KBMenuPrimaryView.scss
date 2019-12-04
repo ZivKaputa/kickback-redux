@@ -1,0 +1,47 @@
+@import '../../utilities/variables.scss';
+
+.kb-menu-primary-view {
+  flex: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.kb-menu-primary-view-title {
+  flex: none;
+  padding: 10px 0px 10px 0px;
+  text-align: center;
+  color: $extra-light-grey;
+  border-bottom: 1px solid $dark-grey-10;
+  margin-bottom: 4px;
+}
+
+.kb-menu-primary-view-section {
+  padding: 4px 0px 4px 0px;
+  margin: 0px 8px 0px 8px;
+  flex: none;
+  border-bottom: 1px solid $dark-grey-8;
+}
+
+.kb-menu-primary-view-section-title {
+  padding: 4px 0px 4px 6px;
+  color: $extra-light-grey;
+  font-weight: bold;
+  font-size: 12px;
+  text-align: left;
+}
+
+.kb-menu-primary-view-section-content {
+  color: $light-grey;
+  text-align: left;
+  padding: 5px 0px 5px 16px;
+}
+
+.kb-menu-link {
+  color: $extra-light-grey !important;
+  font-weight: bolder;
+}
+
+.kb-menu-link:hover {
+  color: $primary-green !important;
+  font-weight: bold;
+}
