@@ -7,7 +7,7 @@ class KBNowPlaying extends Component {
   render() {
     if (!this.props.item) {
       return (
-        <div>NONE</div>
+          <div className='kb-now-playing'> Nothing is playing. </div>
       )
     }
     return (

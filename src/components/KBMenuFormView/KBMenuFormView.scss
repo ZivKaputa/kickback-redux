@@ -1,0 +1,50 @@
+@import '../../utilities/variables.scss';
+
+
+.kb-menu-form-view {
+  flex: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.kb-menu-form-header {
+  flex: none;
+  text-align: left;
+  padding: 10px 10px 20px 15px;
+  font-weight: bolder;
+}
+
+.kb-menu-form-view-section {
+  padding: 5px 0px 5px 0px;
+  flex: none;
+}
+
+.kb-menu-form-view-input-container {
+  padding: 5px 0px 5px 0px;
+}
+
+.kb-menu-form-view-error {
+  text-align: center;
+  font-size: 12px;
+  color: red;
+  padding: 5px 30px 5px 30px;
+}
+
+.kb-menu-form-view-controls {
+  flex: none;
+  display: flex;
+  flex-direction: row;
+  padding: 20px 0px 5px 0px;
+}
+
+.kb-menu-form-view-submit {
+  flex: auto;
+  text-align: right;
+  padding: 0px 7px 0px 5px;
+}
+
+.kb-menu-form-view-cancel {
+  flex: auto;
+  text-align: left;
+  padding: 0px 5px 0px 7px;
+}

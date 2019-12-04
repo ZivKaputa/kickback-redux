@@ -6,15 +6,6 @@
   flex-direction: column;
 }
 
-.kb-menu-primary-view-title {
-  flex: none;
-  padding: 10px 0px 10px 0px;
-  text-align: center;
-  color: $extra-light-grey;
-  border-bottom: 1px solid $dark-grey-10;
-  margin-bottom: 4px;
-}
-
 .kb-menu-primary-view-section {
   padding: 4px 0px 4px 0px;
   margin: 0px 8px 0px 8px;
@@ -39,9 +30,11 @@
 .kb-menu-link {
   color: $extra-light-grey !important;
   font-weight: bolder;
+  // border-bottom: 1px solid $light-grey;
 }
 
 .kb-menu-link:hover {
   color: $primary-green !important;
+  // border-bottom: 1px solid $primary-green;
   font-weight: bold;
 }

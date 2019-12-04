@@ -1,9 +1,11 @@
-// import { USER_UPDATE } from '../../actions/user/updateSession.js'
+import { UPDATE_USER } from '../../actions/user/updateUser.js'
 
-const DEFAULT_STATE = 1
+const DEFAULT_STATE = 'fako'
 
-export default function id(state = DEFAULT_STATE, action) {
+export default function updateUser(state = DEFAULT_STATE, action) {
   switch (action.type) {
+    case UPDATE_USER:
+      return action.newUserId
     default:
       return state
   }

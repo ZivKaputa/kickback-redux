@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { views } from '../../reducers/menu/currentView'
 import './KBMenuPrimaryView.scss'
 
 class KBMenuPrimaryView extends Component {
@@ -7,24 +8,26 @@ class KBMenuPrimaryView extends Component {
 
     const DEFAULT_LOGIN_CONTENT = (
       <div>
-        Guest
+        <a className='kb-menu-link' onClick={() => {this.props.updateView(views.LOGIN)}}>Login</a>
+        <span> or </span>
+        <a className='kb-menu-link' onClick={() => {this.props.updateView(views.SIGN_UP)}}>Sign Up</a>
       </div>
     )
     const DEFAULT_CURRENT_SESSION_CONTENT = (
       <div>
-        <a className='kb-menu-link'>Join</a>
+        <a className='kb-menu-link' onClick={() => {this.props.updateView(views.JOIN)}}>Join</a>
         <span> or </span>
-        <a className='kb-menu-link'>Create</a>
+        <a className='kb-menu-link' onClick={() => {this.props.updateView(views.CREATE)}}>Create</a>
       </div>
     )
     const DEFAULT_MY_SESSION_CONTENT = (
       <div>
-        <a className='kb-menu-link'>Create</a>
+        <a className='kb-menu-link' onClick={() => {this.props.updateView(views.CREATE)}}>Create</a>
       </div>
     )
     const DEFAULT_FRIENDS_LIST_CONTENT = (
       <div>
-        <a className='kb-menu-link'>Add Friends</a>
+        <a className='kb-menu-link' onClick={() => {this.props.updateView(views.ADD_FOLLOWER)}}>Follow a User</a>
       </div>
     )
 
@@ -36,11 +39,8 @@ class KBMenuPrimaryView extends Component {
 
     return (
       <div className='kb-menu-primary-view'>
-        <div className='kb-menu-primary-view-title'>
-          Menu
-        </div>
         <div className='kb-menu-primary-view-section'>
-          <div className='kb-menu-primary-view-section-title'> Logged In As </div>
+          <div className='kb-menu-primary-view-section-title'> Account Info </div>
           <div className='kb-menu-primary-view-section-content'> {usernameContent} </div>
         </div>
         <div className='kb-menu-primary-view-section'>
@@ -61,6 +61,7 @@ class KBMenuPrimaryView extends Component {
 }
 
 KBMenuPrimaryView.propTypes = {
+  updateView: PropTypes.func
 }
 
 export default KBMenuPrimaryView

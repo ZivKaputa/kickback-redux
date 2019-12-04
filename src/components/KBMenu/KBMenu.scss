@@ -9,3 +9,12 @@
   flex: none;
   color: white;
 }
+
+.kb-menu-title {
+  flex: none;
+  padding: 10px 0px 10px 15px;
+  text-align: left;
+  color: $extra-light-grey;
+  border-bottom: 1px solid $dark-grey-10;
+  margin-bottom: 4px;
+}

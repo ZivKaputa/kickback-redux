@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'
 import KBMenuPrimaryView from '../../components/KBMenuPrimaryView'
+import updateCurrentMenuView from '../../actions/menu/updateCurrentMenuView'
 
 const mapStateToProps = state => {
   return {
@@ -8,6 +9,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
+    updateView: view => {
+      dispatch(updateCurrentMenuView(view))
+    }
   }
 }
 

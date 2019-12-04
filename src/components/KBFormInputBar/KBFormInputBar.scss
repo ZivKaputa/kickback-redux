@@ -1,0 +1,26 @@
+@import '../../utilities/variables.scss';
+
+.kb-form-input-bar-container {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 0px 10px 0px;
+  align-items: center;
+}
+
+.kb-form-input-bar-header {
+  width: 180px;
+  padding: 2px 0px 5px 0px;
+  text-align: left;
+  font-size: 13px;
+  margin: auto;
+}
+
+.kb-form-input-bar-text {
+  flex: none;
+  border: 1px solid $extra-light-grey;
+  border-radius: 4px;
+  padding: 3px 6px 3px 6px;
+  outline-width: 0;
+  width: 160px;
+}

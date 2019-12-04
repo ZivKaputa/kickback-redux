@@ -6,6 +6,7 @@ import user from './user'
 import tab from './tab'
 import menu from './menu'
 import chat from './chat'
+import forms from './forms'
 
 const rootReducer = combineReducers({
   search,
@@ -14,7 +15,8 @@ const rootReducer = combineReducers({
   user,
   tab,
   menu,
-  chat
+  chat,
+  forms
 })
 
 export default rootReducer

@@ -5,15 +5,16 @@ export const views = {
   LOGIN: 'login',
   SIGN_UP: 'sign_up',
   JOIN: 'join',
-  CREATE: 'create'
+  CREATE: 'create',
+  ADD_FOLLOWER: 'add_follower'
 }
 
-const DEFAULT_STATE = views.PRIMARY
+const DEFAULT_STATE = views.LOGIN
 
 export default function currentView(state = DEFAULT_STATE, action) {
   switch (action.type) {
     case MENU_VIEW_UPDATE_CURRENT:
-      return action.currentMenuView
+      return action.currentView
     default:
       return state
   }
