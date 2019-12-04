@@ -8,7 +8,7 @@ class KBMenuPrimaryView extends Component {
 
     const DEFAULT_LOGIN_CONTENT = (
       <div>
-        <a className='kb-menu-link' onClick={() => {this.props.updateView(views.LOGIN)}}>Login</a>
+        <a className='kb-menu-link' onClick={() => {this.props.updateView(views.LOGIN)}}>Log In</a>
         <span> or </span>
         <a className='kb-menu-link' onClick={() => {this.props.updateView(views.SIGN_UP)}}>Sign Up</a>
       </div>
@@ -25,7 +25,7 @@ class KBMenuPrimaryView extends Component {
         <a className='kb-menu-link' onClick={() => {this.props.updateView(views.CREATE)}}>Create</a>
       </div>
     )
-    const DEFAULT_FRIENDS_LIST_CONTENT = (
+    const DEFAULT_FOLLOWING_LIST_CONTENT = (
       <div>
         <a className='kb-menu-link' onClick={() => {this.props.updateView(views.ADD_FOLLOWER)}}>Follow a User</a>
       </div>
@@ -35,7 +35,7 @@ class KBMenuPrimaryView extends Component {
     const usernameContent = this.props.username ? this.props.username : DEFAULT_LOGIN_CONTENT
     const currentSessionContent = this.props.sessionName ? this.props.sessionName : DEFAULT_CURRENT_SESSION_CONTENT
     const mySessionContent = this.props.mySessionName ? this.props.mySessionName : DEFAULT_MY_SESSION_CONTENT
-    const friendListContent = (this.props.friends && this.props.friends.length > 0)  ? this.props.friends : DEFAULT_FRIENDS_LIST_CONTENT
+    const followingListContent = (this.props.following && this.props.following.length > 0)  ? this.props.following : DEFAULT_FOLLOWING_LIST_CONTENT
 
     return (
       <div className='kb-menu-primary-view'>
@@ -52,8 +52,8 @@ class KBMenuPrimaryView extends Component {
           <div className='kb-menu-primary-view-section-content'> {mySessionContent} </div>
         </div>
         <div className='kb-menu-primary-view-section'>
-          <div className='kb-menu-primary-view-section-title'> Friends </div>
-          <div className='kb-menu-primary-view-section-content'> {friendListContent} </div>
+          <div className='kb-menu-primary-view-section-title'> Following </div>
+          <div className='kb-menu-primary-view-section-content'> {followingListContent} </div>
         </div>
       </div>
     )

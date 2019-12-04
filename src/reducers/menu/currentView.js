@@ -9,7 +9,7 @@ export const views = {
   ADD_FOLLOWER: 'add_follower'
 }
 
-const DEFAULT_STATE = views.LOGIN
+const DEFAULT_STATE = views.PRIMARY
 
 export default function currentView(state = DEFAULT_STATE, action) {
   switch (action.type) {

@@ -8,30 +8,31 @@ class KBMenuFormView extends Component {
 
   render() {
 
-    const inputs = this.props.inputs.map(inputInfo => (
+    const inputs = this.props.formInfo.inputs
+    const inputContent = Object.keys(inputs).map(field => (
       <FormInputBar
-        label={inputInfo.label}
-        placeholder={inputInfo.placeholder}
-        value={inputInfo.value}
-        onChange={inputInfo.onChange}
-        key={inputInfo.label}
+        label={inputs[field].label}
+        placeholder={inputs[field].placeholder}
+        value={inputs[field].value}
+        onChange={newVal => this.props.onInputChange(field, newVal)}
+        key={field}
       />
     ))
 
     return (
       <div className='kb-menu-form-view'>
         <div className='kb-menu-form-header'>
-          {this.props.title}
+          {this.props.formInfo.title}
         </div>
         <div className='kb-menu-form-view-input-container'>
-          {inputs}
+          {inputContent}
         </div>
         <div className='kb-menu-form-view-error'>
-          {this.props.error}
+          {this.props.formInfo.error}
         </div>
         <div className='kb-menu-form-view-controls'>
           <div className='kb-menu-form-view-submit'>
-            <a className='kb-menu-link' onClick={this.props.onSubmit}>{this.props.submitLabel}</a>
+            <a className='kb-menu-link' onClick={this.props.onSubmit}>{this.props.formInfo.submitLabel}</a>
           </div>
           <div className='kb-menu-form-view-cancel'>
             <a className='kb-menu-link' onClick={this.props.onCancel}>Cancel</a>
@@ -43,12 +44,10 @@ class KBMenuFormView extends Component {
 }
 
 KBMenuFormView.propTypes = {
-  title: PropTypes.string,
-  inputs: PropTypes.array,
-  submitLabel: PropTypes.string,
-  error: PropTypes.string,
+  formInfo: PropTypes.object,
   onCancel: PropTypes.func,
-  onSubmit: PropTypes.func
+  onSubmit: PropTypes.func,
+  onInputChange: PropTypes.func
 }
 
 export default KBMenuFormView

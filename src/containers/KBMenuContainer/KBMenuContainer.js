@@ -1,12 +1,12 @@
 import { connect } from 'react-redux'
 import KBMenu from '../../components/KBMenu'
 import updateCurrentMenuView from '../../actions/menu/updateCurrentMenuView'
-import updateJoinFormSessionID from '../../actions/forms/join/updateJoinFormSessionID'
-import updateJoinFormSessionPassword from '../../actions/forms/join/updateJoinFormSessionPassword'
+import updateMenuFormField from '../../actions/menu/updateMenuFormField.js'
 
 const mapStateToProps = state => {
   return {
-    currentView: state.menu.currentView
+    currentView: state.menu.currentView,
+    formInfo: state.menu.formInfo
   }
 }
 
@@ -15,11 +15,8 @@ const mapDispatchToProps = dispatch => {
     updateView: view => {
       dispatch(updateCurrentMenuView(view))
     },
-    onJoinFormSessionIDChange: newSessionID => {
-        dispatch(updateJoinFormSessionID(newSessionID))
-    },
-    onJoinFormSessionPasswordChange: newSessionPassword => {
-        dispatch(updateJoinFormSessionPassword(newSessionPassword))
+    onInputChange: (field, newVal) => {
+      dispatch(updateMenuFormField(field, newVal))
     }
   }
 }
