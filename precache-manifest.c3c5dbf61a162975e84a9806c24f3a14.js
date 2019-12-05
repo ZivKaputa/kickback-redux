@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "328cee214ca96515f3941bae4154adfe",
+    "revision": "48736e3840b78d26865715ddc28a1ef8",
     "url": "/kickback-redux/index.html"
   },
   {
-    "revision": "8e4c910606ec9902434e",
+    "revision": "9a2f0213225e90bc9f8e",
     "url": "/kickback-redux/static/css/2.76a74555.chunk.css"
   },
   {
-    "revision": "8704cbe99dccdafd490e",
-    "url": "/kickback-redux/static/css/main.4825874a.chunk.css"
+    "revision": "be1bcbbec33f6bbfe7ae",
+    "url": "/kickback-redux/static/css/main.fb85ed2b.chunk.css"
   },
   {
-    "revision": "8e4c910606ec9902434e",
-    "url": "/kickback-redux/static/js/2.6c153c98.chunk.js"
+    "revision": "9a2f0213225e90bc9f8e",
+    "url": "/kickback-redux/static/js/2.3deb4c35.chunk.js"
   },
   {
-    "revision": "8704cbe99dccdafd490e",
-    "url": "/kickback-redux/static/js/main.e6a7b9d8.chunk.js"
+    "revision": "be1bcbbec33f6bbfe7ae",
+    "url": "/kickback-redux/static/js/main.c6060b18.chunk.js"
   },
   {
     "revision": "7b2fdcca5119a681396c",
