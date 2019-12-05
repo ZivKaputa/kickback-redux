@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import './KBMenuFormView.scss'
 import '../KBMenuPrimaryView/KBMenuPrimaryView.scss'
-import FormInputBar from '../KBFormInputBar'
+import KBFormInputBar from '../KBFormInputBar'
 
 class KBMenuFormView extends Component {
 
@@ -10,7 +10,7 @@ class KBMenuFormView extends Component {
 
     const inputs = this.props.formInfo.inputs
     const inputContent = Object.keys(inputs).map(field => (
-      <FormInputBar
+      <KBFormInputBar
         label={inputs[field].label}
         placeholder={inputs[field].placeholder}
         value={inputs[field].value}

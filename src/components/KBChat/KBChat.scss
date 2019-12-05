@@ -25,6 +25,7 @@
   flex-direction: column;
   min-height: 0px;
   overflow: scroll;
+  padding-bottom: 5px;
 }
 
 .kb-chat-message-title {
@@ -47,7 +48,31 @@
   border-radius: 5px;
 }
 
-.kb-control-container {
+.kb-menu-control-container {
+  background-color: $dark-grey-8;
+  border-top: solid 1px $dark-grey-10;
   flex: none;
-  padding: 6px;
+  display: flex;
+  flex-direction: row;
+  padding: 10px 6px 6px 6px;
+}
+
+.kb-menu-chat-text-box {
+  flex: auto;
+  border: 1px solid $extra-light-grey;
+  border-radius: 4px;
+  padding: 3px 6px 3px 6px;
+  margin: 0px 2px 0px 2px;
+  outline-width: 0;
+}
+
+.kb-menu-chat-button {
+  display: flex;
+  flex: none;
+  padding: 0px 12px 0px 6px;
+  cursor: pointer;
+}
+
+.kb-menu-chat-button:hover {
+  color: #b0b0b0;
 }
