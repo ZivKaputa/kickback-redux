@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/kickback-redux/static/css/main.9b417697.chunk.css",
+    "main.js": "/kickback-redux/static/js/main.6623fbf0.chunk.js",
+    "main.js.map": "/kickback-redux/static/js/main.6623fbf0.chunk.js.map",
+    "runtime-main.js": "/kickback-redux/static/js/runtime-main.9aa9eb85.js",
+    "runtime-main.js.map": "/kickback-redux/static/js/runtime-main.9aa9eb85.js.map",
+    "static/css/2.76a74555.chunk.css": "/kickback-redux/static/css/2.76a74555.chunk.css",
+    "static/js/2.b1ec433b.chunk.js": "/kickback-redux/static/js/2.b1ec433b.chunk.js",
+    "static/js/2.b1ec433b.chunk.js.map": "/kickback-redux/static/js/2.b1ec433b.chunk.js.map",
+    "index.html": "/kickback-redux/index.html",
+    "precache-manifest.86ed26295e3beaf96445079c494b24e8.js": "/kickback-redux/precache-manifest.86ed26295e3beaf96445079c494b24e8.js",
+    "service-worker.js": "/kickback-redux/service-worker.js",
+    "static/css/2.76a74555.chunk.css.map": "/kickback-redux/static/css/2.76a74555.chunk.css.map",
+    "static/css/main.9b417697.chunk.css.map": "/kickback-redux/static/css/main.9b417697.chunk.css.map",
+    "static/media/mdb.css": "/kickback-redux/static/media/arrow_right.8ef6a08c.svg",
+    "static/media/all.min.css": "/kickback-redux/static/media/fa-solid-900.c2801fb4.svg",
+    "static/media/logo.svg": "/kickback-redux/static/media/logo.25bf045c.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9aa9eb85.js",
+    "static/css/2.76a74555.chunk.css",
+    "static/js/2.b1ec433b.chunk.js",
+    "static/css/main.9b417697.chunk.css",
+    "static/js/main.6623fbf0.chunk.js"
+  ]
+}
