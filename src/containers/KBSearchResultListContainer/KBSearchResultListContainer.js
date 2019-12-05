@@ -7,7 +7,8 @@ import { toast } from 'react-toastify'
 const mapStateToProps = state => {
   return {
     tracks: state.search.results.items || [],
-    scrollPosition: state.search.scrollPosition
+    scrollPosition: state.search.scrollPosition,
+    inSession: (state.session.id !== null)
   }
 }
 

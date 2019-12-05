@@ -8,7 +8,7 @@ const mapStateToProps = state => {
   return {
     tracks: state.queue.data.items || [],
     scrollPosition: state.queue.scrollPosition,
-    isAdmin: (state.user.session.id === state.session.id)
+    isAdmin: (state.user.session.id && (state.user.session.id === state.session.id))
   }
 }
 

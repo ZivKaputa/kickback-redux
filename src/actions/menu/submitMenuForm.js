@@ -2,7 +2,15 @@ import updateMenuFormError from './updateMenuFormError'
 import updateCurrentMenuView from './updateCurrentMenuView'
 import updateUser from '../user/updateUser'
 import updateSession from '../session/updateSession'
+import followUser from '../user/followUser'
 import { views } from '../../reducers/menu/currentView'
+
+function safeNull(obj) {
+  if (!obj) {
+    return null
+  }
+  return obj
+}
 
 export default function submitMenuForm(formInfo) {
   return function(dispatch, getState) {
@@ -27,44 +35,51 @@ export default function submitMenuForm(formInfo) {
         url = BASE_URL + `create_session?session_id=${formInfo.inputs.sessionID.value}&session_password=${formInfo.inputs.sessionPassword.value}` +
           `&session_name=${formInfo.inputs.sessionName.value}&owner=${getState().user.id}`
         break
+      case views.ADD_FOLLOWER:
+        handle(() => dispatch(followUser(formInfo.inputs.username.value)))
+        return
       default:
         break
     }
 
     // Submit form data to endpoint
-    fetch(url).then(function(response) {
-      if (!response.ok) {
-          response.text().then(text => handleError(formInfo, text))
-      }
-      return response
-    }).then(function(response) {
-      if (response.ok) {
-        response.text().then(res => handleSuccess(formInfo, res))
-        // response.json().then(res => handleSuccess(formInfo, res))
-      }
-    }).catch(function(error) {
-        console.log(error)
-    })
+    handle(() => fetch(url))
 
-    function handleError(formInfo, errorText) {
-      dispatch(updateMenuFormError(errorText))
+    function handle(promise) {
+      promise().then(function(response) {
+        console.log('ASHJBDASHDKASBKHDBJASD')
+        handleError(formInfo, response)
+        return response
+      }).then(function(response) {
+        handleSuccess(formInfo, response)
+      }).catch(function(error) {
+          console.log(error)
+      })
+    }
+
+    function handleError(formInfo, response) {
+      if (!response.ok) {
+        response.text().then(errorText => dispatch(updateMenuFormError(errorText)))
+      }
     }
 
     function handleSuccess(formInfo, response) {
-      switch (formInfo.id) {
-        case views.LOGIN:
-        case views.SIGN_UP:
-          dispatch(updateUser(formInfo.inputs.username.value))
-          break
-        case views.JOIN:
-        case views.CREATE:
-          // dispatch(updateSession(response.sessionID, response.sessionName))
-          dispatch(updateSession(formInfo.inputs.sessionID ? formInfo.inputs.sessionID.value : 'FAKE', formInfo.inputs.sessionName ? formInfo.inputs.sessionName.value : 'FAKE'))
-          break
-        default:
-          break
+      if (response.ok) {
+        switch (formInfo.id) {
+          case views.LOGIN:
+          case views.SIGN_UP:
+            dispatch(updateUser(formInfo.inputs.username.value))
+            break
+          case views.CREATE:
+          case views.JOIN:
+            response = JSON.parse(response)
+            dispatch(updateSession(safeNull(response.session_id), safeNull(response.session_name)))
+            break
+          default:
+            break
+        }
+        dispatch(updateCurrentMenuView(views.PRIMARY))
       }
-      dispatch(updateCurrentMenuView(views.PRIMARY))
     }
 
   }

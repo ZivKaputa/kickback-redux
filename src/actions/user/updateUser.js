@@ -1,4 +1,5 @@
 import updateUserLocally from './updateUserLocally'
+import refreshUser from './refreshUser'
 import localforage from "localforage"
 
 export default function updateUser(newUserId) {
@@ -8,6 +9,7 @@ export default function updateUser(newUserId) {
       return localforage.getItem('kb-username')
     }).then(value => {
       dispatch(updateUserLocally(newUserId))
+      dispatch(refreshUser())
     })
 
   }

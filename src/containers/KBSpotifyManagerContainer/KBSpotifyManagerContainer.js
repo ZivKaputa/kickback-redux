@@ -5,7 +5,7 @@ import KBSpotifyManager from '../../components/KBSpotifyManager'
 const mapStateToProps = state => {
   return {
     accessToken: state.spotify.accessToken,
-    playerActive: (state.user.session.id === state.session.id)
+    playerActive: (state.user.session.id && (state.user.session.id === state.session.id))
   }
 }
 

@@ -50,7 +50,7 @@ class KBMenuPrimaryView extends Component {
     )
     const DEFAULT_FOLLOWING_LIST_CONTENT = (
       <div className='kb-menu-primary-bottom-controls'>
-        <a className='kb-menu-link' onClick={() => {this.props.updateView(views.ADD_FOLLOWER)}}>Follow</a>
+        <a className='kb-menu-link' onClick={() => {this.props.updateView(views.ADD_FOLLOWER)}}>Follow a New User</a>
       </div>
     )
 
@@ -107,7 +107,38 @@ class KBMenuPrimaryView extends Component {
         </div>
       </div>
     ) : DEFAULT_MY_SESSION_CONTENT
-    const followingListContent = (this.props.following && this.props.following.length > 0)  ? this.props.following : DEFAULT_FOLLOWING_LIST_CONTENT
+
+    const followingListContent = (this.props.following && this.props.following.length > 0)
+      ? this.props.following.map(rawUserData => {
+          let username = Object.keys(rawUserData)[0]
+          let userInfo = rawUserData[username]
+          return (
+            <div className='kb-following'>
+              <div className='kb-following-username'>{username}</div>
+              {userInfo.session_id ? <div className='kb-following-session-header'>Current Session</div> : null}
+              {userInfo.session_id ? (
+                <div className='kb-following-subinfo'>
+                  <span className='kb-following-subinfo-label'>Name: </span>{userInfo.session_name}
+                </div>)
+              : null}
+              {(userInfo.session_id && userInfo.now_playing) ? (
+                <div className='kb-following-subinfo'>
+                  <span className='kb-following-subinfo-label'>Now Playing: </span>{userInfo.now_playing.name}
+                </div>)
+              : null}
+              <div className='kb-following-controls'>
+                {userInfo.session_id ? (
+                  <span>
+                    <a className='kb-menu-link' onClick={() => this.props.updateSession(userInfo.session_id, userInfo.session_name)}>Join Session</a>
+                    <span> • </span>
+                  </span>
+                ) : null}
+                <a className='kb-menu-link' onClick={() => this.props.unfollowUser(username)}>Unfollow</a>
+              </div>
+            </div>
+          )
+      })
+      : null
 
     return (
       <div className='kb-menu-primary-view'>
@@ -125,7 +156,7 @@ class KBMenuPrimaryView extends Component {
         </div>
         <div className='kb-menu-primary-view-section'>
           <div className='kb-menu-primary-view-section-title'> Following </div>
-          <div className='kb-menu-primary-view-section-content'> {followingListContent} </div>
+          <div className='kb-menu-primary-view-section-content'> {DEFAULT_FOLLOWING_LIST_CONTENT} {followingListContent} </div>
         </div>
       </div>
     )
@@ -138,11 +169,14 @@ KBMenuPrimaryView.propTypes = {
   leaveSession: PropTypes.func,
   updateSession: PropTypes.func,
   deleteMySession: PropTypes.func,
+  deleteAccount: PropTypes.func,
   username: PropTypes.string,
   sessionName: PropTypes.string,
   sessionID: PropTypes.string,
   mySessionID: PropTypes.string,
-  mySessionName: PropTypes.string
+  mySessionName: PropTypes.string,
+  following: PropTypes.array,
+  unfollowUser: PropTypes.func
 }
 
 export default KBMenuPrimaryView

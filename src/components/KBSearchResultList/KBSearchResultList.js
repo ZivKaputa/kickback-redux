@@ -23,6 +23,14 @@ class KBSearchResultList extends Component {
 
   render() {
 
+    if (!this.props.inSession) {
+      return (
+        <div id='kb-search-results' className="kb-empty-search-result">
+          Join a session to add songs
+        </div>
+      )
+    }
+
     if (!this.props.tracks || this.props.tracks.length == 0) {
       return (
         <div id='kb-search-results' className="kb-empty-search-result">
@@ -51,7 +59,8 @@ KBSearchResultList.propTypes = {
   tracks: PropTypes.array,
   onClick: PropTypes.func,
   onScroll: PropTypes.func,
-  scrollPosition: PropTypes.number
+  scrollPosition: PropTypes.number,
+  inSession: PropTypes.bool
 }
 
 export default KBSearchResultList;

@@ -6,6 +6,7 @@ import SpotifyWebApi from 'spotify-web-api-node'
 const authEndpoint = 'https://accounts.spotify.com/authorize'
 const clientId = "c7068e47edfd40ce947f93adfc20eb96"
 const redirectUri = "http://localhost:3000"
+// const redirectUri = "http://www.kickback.group"
 const scopes = [
   "user-read-currently-playing",
   "user-read-playback-state",

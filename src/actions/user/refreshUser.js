@@ -1,8 +1,9 @@
-// import fetchItems from '../queue/fetchItems'
-// import updateSessionLocally from '../queue/updateSessionLocally'
-//
-// export default function refreshSession() {
-//   return function(dispatch, getState) {
-//       dispatch(fetchItems())
-//   }
-// }
+import updateUserOwnedSession from './updateUserOwnedSession'
+import fetchFollowing from './fetchFollowing'
+
+export default function refreshUser() {
+  return function(dispatch, getState) {
+      dispatch(updateUserOwnedSession())
+      dispatch(fetchFollowing())
+  }
+}

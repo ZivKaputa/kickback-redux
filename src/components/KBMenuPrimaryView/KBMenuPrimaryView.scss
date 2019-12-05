@@ -54,3 +54,34 @@
   padding: 1px 0px 1px 0px;
   color: $secondary-green;
 }
+
+.kb-following {
+  border-bottom: 1px solid $dark-grey-8;
+  padding-bottom: 4px;
+}
+
+.kb-following-username {
+  color: $primary-green;
+  padding: 3px 0px 3px 0px;
+}
+
+.kb-following-session-header {
+  font-size: 12px;
+  font-weight: bold;
+  padding: 2px 5px 2px 10px;
+}
+
+.kb-following-subinfo {
+  padding: 2px 5px 2px 15px;
+  font-size: 12px;
+}
+
+.kb-following-subinfo-label {
+  font-weight: bold;
+}
+
+.kb-following-controls {
+  font-size: 12px;
+  text-align: right;
+  padding-right: 5px;
+}

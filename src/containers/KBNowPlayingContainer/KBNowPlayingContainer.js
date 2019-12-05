@@ -7,7 +7,7 @@ const mapStateToProps = state => {
     item = state.queue.data.items[0]
   }
 
-  let isAdmin = (state.user.session.id === state.session.id)
+  let isAdmin = (state.user.session.id && (state.user.session.id === state.session.id))
 
   return {
     item,

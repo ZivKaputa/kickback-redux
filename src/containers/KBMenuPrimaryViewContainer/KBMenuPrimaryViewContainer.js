@@ -4,6 +4,7 @@ import updateCurrentMenuView from '../../actions/menu/updateCurrentMenuView'
 import updateUser from '../../actions/user/updateUser'
 import deleteOwnedSession from '../../actions/user/deleteOwnedSession'
 import updateSession from '../../actions/session/updateSession'
+import unfollowUser from '../../actions/user/unfollowUser'
 
 const mapStateToProps = state => {
   return {
@@ -11,7 +12,8 @@ const mapStateToProps = state => {
     sessionName: state.session.name,
     sessionID: state.session.id,
     mySessionID: state.user.session.id,
-    mySessionName: state.user.session.name
+    mySessionName: state.user.session.name,
+    following: state.user.following.items
   }
 }
 
@@ -31,6 +33,9 @@ const mapDispatchToProps = dispatch => {
     },
     deleteMySession: () => {
       dispatch(deleteOwnedSession())
+    },
+    unfollowUser: following => {
+      dispatch(unfollowUser(following))
     }
   }
 }
