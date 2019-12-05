@@ -7,7 +7,8 @@ import KBQueue from '../../components/KBQueue'
 const mapStateToProps = state => {
   return {
     tracks: state.queue.data.items || [],
-    scrollPosition: state.queue.scrollPosition
+    scrollPosition: state.queue.scrollPosition,
+    isAdmin: (state.user.session.id === state.session.id)
   }
 }
 

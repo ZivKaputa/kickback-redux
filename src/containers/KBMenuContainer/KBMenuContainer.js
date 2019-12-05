@@ -2,6 +2,7 @@ import { connect } from 'react-redux'
 import KBMenu from '../../components/KBMenu'
 import updateCurrentMenuView from '../../actions/menu/updateCurrentMenuView'
 import updateMenuFormField from '../../actions/menu/updateMenuFormField.js'
+import submitMenuForm from '../../actions/menu/submitMenuForm.js'
 
 const mapStateToProps = state => {
   return {
@@ -17,6 +18,9 @@ const mapDispatchToProps = dispatch => {
     },
     onInputChange: (field, newVal) => {
       dispatch(updateMenuFormField(field, newVal))
+    },
+    onSubmit: formInfo => {
+      dispatch(submitMenuForm(formInfo))
     }
   }
 }

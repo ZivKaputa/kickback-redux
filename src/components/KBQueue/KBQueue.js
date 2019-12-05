@@ -37,10 +37,26 @@ class KBQueue extends Component {
 
   render() {
 
+    if (this.props.tracks.length == 0) {
+      return (
+        <div className='kb-queue-list'>
+          <div className='kb-queue-empty'>
+            No tracks in queue
+          </div>
+        </div>
+      )
+    }
+
     const nowPlaying = (this.props.tracks.length > 0) ? <KBQueueNowPlaying track={this.props.tracks[0]} key={this.props.tracks[0].song_id}/> : <div></div>
 
     const queueItems = this.props.tracks.slice(1).map((track, index) =>
-      <KBQueueItem track={track} key={track.song_id} index={index+1} onDelete={this.props.onDelete}/>
+      <KBQueueItem
+        isAdmin={this.props.isAdmin}
+        track={track}
+        key={track.song_id}
+        index={index+1}
+        onDelete={this.props.onDelete}
+      />
     );
 
     return (
@@ -69,7 +85,8 @@ KBQueue.propTypes = {
   onDelete: PropTypes.func,
   tracks: PropTypes.array,
   scrollPosition: PropTypes.number,
-  onScroll: PropTypes.func
+  onScroll: PropTypes.func,
+  isAdmin: PropTypes.bool
 }
 
 export default KBQueue

@@ -22,7 +22,7 @@ class KBMenu extends Component {
         viewContent = <KBMenuFormView
           formInfo={this.props.formInfo}
           onInputChange={this.props.onInputChange}
-          onSubmit={()=>{}}
+          onSubmit={()=> {this.props.onSubmit(this.props.formInfo)}}
           onCancel={() => {this.props.updateView(views.PRIMARY)}}
         />
         break

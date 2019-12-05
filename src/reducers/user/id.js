@@ -1,10 +1,10 @@
-import { UPDATE_USER } from '../../actions/user/updateUser.js'
+import { UPDATE_USER_LOCALLY } from '../../actions/user/updateUserLocally.js'
 
-const DEFAULT_STATE = 'fako'
+const DEFAULT_STATE = null
 
-export default function updateUser(state = DEFAULT_STATE, action) {
+export default function id(state = DEFAULT_STATE, action) {
   switch (action.type) {
-    case UPDATE_USER:
+    case UPDATE_USER_LOCALLY:
       return action.newUserId
     default:
       return state

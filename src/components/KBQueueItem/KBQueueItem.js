@@ -31,16 +31,20 @@ class KBQueueItem extends Component {
                     {this.props.track.name}
                   </div>
                   <div className='kb-queue-item-details'>
-                    {this.props.track.artists.join(", ")} • {this.props.track.album}
+                    {this.props.track.artists.join(", ").substring(0,50)} • {this.props.track.album.substring(0,50)}
                   </div>
                   <div className='kb-queue-item-info-pad'/>
                 </div>
-                <div {...provided.dragHandleProps} className='kb-queue-item-drag-handle'>
-                  <MDBIcon icon="grip-lines"/>
-                </div>
-                <div className='kb-queue-item-delete' onClick={() => this.props.onDelete(this.props.index)}>
-                  <MDBIcon icon="minus-circle"/>
-                </div>
+                {this.props.isAdmin ? (
+                  <div {...provided.dragHandleProps} className='kb-queue-item-drag-handle'>
+                    <MDBIcon icon="grip-lines"/>
+                  </div>
+                ) : null}
+                {this.props.isAdmin ? (
+                  <div className='kb-queue-item-delete' onClick={() => this.props.onDelete(this.props.index)}>
+                    <MDBIcon icon="minus-circle"/>
+                  </div>
+                ) : null}
               </div>
             </div>
           )
@@ -53,7 +57,8 @@ class KBQueueItem extends Component {
 
 KBQueueItem.propTypes = {
   track: PropTypes.object,
-  index: PropTypes.number
+  index: PropTypes.number,
+  isAdmin: PropTypes.bool
 }
 
 export default KBQueueItem

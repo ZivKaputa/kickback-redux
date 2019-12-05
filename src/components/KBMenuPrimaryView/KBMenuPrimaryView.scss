@@ -38,3 +38,19 @@
   // border-bottom: 1px solid $primary-green;
   font-weight: bold;
 }
+
+.kb-menu-primary-bottom-controls {
+  padding: 5px 5px 0px 5px;
+  font-size: 12px;
+  text-align: right;
+}
+
+.kb-menu-bolder {
+  font-weight: bold;
+  color: $extra-light-grey;
+}
+
+.kb-menu-important {
+  padding: 1px 0px 1px 0px;
+  color: $secondary-green;
+}

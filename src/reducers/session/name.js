@@ -2,10 +2,10 @@ import { UPDATE_SESSION_LOCALLY } from '../../actions/session/updateSessionLocal
 
 const DEFAULT_STATE = null
 
-export default function id(state = DEFAULT_STATE, action) {
+export default function name(state = DEFAULT_STATE, action) {
   switch (action.type) {
     case UPDATE_SESSION_LOCALLY:
-      return action.newSessionID
+      return action.newSessionName
     default:
       return state
   }

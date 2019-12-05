@@ -26,7 +26,7 @@ class KBSearchResultList extends Component {
     if (!this.props.tracks || this.props.tracks.length == 0) {
       return (
         <div id='kb-search-results' className="kb-empty-search-result">
-          No Results.
+          No results
         </div>
       )
     }

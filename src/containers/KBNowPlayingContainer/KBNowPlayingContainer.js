@@ -6,8 +6,12 @@ const mapStateToProps = state => {
   if (state.queue.data.items && state.queue.data.items.length > 0) {
     item = state.queue.data.items[0]
   }
+
+  let isAdmin = (state.user.session.id === state.session.id)
+
   return {
-    item: item
+    item,
+    isAdmin
   }
 }
 

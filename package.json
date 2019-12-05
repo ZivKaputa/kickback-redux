@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@babel/runtime": "^7.6.3",
+    "localforage": "^1.7.3",
     "mdbreact": "^4.23.0",
     "node-sass": "^4.13.0",
     "react": "^16.11.0",

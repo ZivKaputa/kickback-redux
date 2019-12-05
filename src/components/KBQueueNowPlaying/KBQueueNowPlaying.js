@@ -22,7 +22,7 @@ class KBQueueNowPlaying extends Component {
               {this.props.track.name}
             </div>
             <div className='kb-queue-item-details'>
-              {this.props.track.artists.join(", ")} • {this.props.track.album}
+              {this.props.track.artists.join(", ").substring(0,50)} • {this.props.track.album.substring(0,50)}
             </div>
             <div className='kb-queue-item-info-pad'/>
           </div>

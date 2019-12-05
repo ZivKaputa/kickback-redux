@@ -7,7 +7,11 @@ class KBNowPlaying extends Component {
   render() {
     if (!this.props.item) {
       return (
-          <div className='kb-now-playing'> Nothing is playing. </div>
+          <div className='kb-now-playing'>
+            <div className='kb-now-playing-empty'>
+              No current song
+            </div>
+          </div>
       )
     }
     return (
@@ -22,19 +26,21 @@ class KBNowPlaying extends Component {
               {this.props.item.name}<br/>
             </div>
             <div className='kb-now-playing-artist-album-info'>
-              {this.props.item.artists.join(", ")} • {this.props.item.album}
+              {this.props.item.artists.join(", ").substring(0,50)} • {this.props.item.album.substring(0,50)}
             </div>
           </div>
-          <div className='kb-now-playing-control-container'>
-            <div className='flex-padding'/>
-            <div className='kb-now-playing-button'>
-              <MDBIcon icon='pause'/>
+          {this.props.isAdmin ? (
+            <div className='kb-now-playing-control-container'>
+              <div className='flex-padding'/>
+              <div className='kb-now-playing-button'>
+                <MDBIcon icon='pause'/>
+              </div>
+              <div className='kb-now-playing-button'>
+                <MDBIcon icon='step-forward'/>
+              </div>
+              <div className='flex-padding'/>
             </div>
-            <div className='kb-now-playing-button'>
-              <MDBIcon icon='step-forward'/>
-            </div>
-            <div className='flex-padding'/>
-          </div>
+          ) : null }
         </div>
         <div className='flex-padding'/>
       </div>
@@ -43,7 +49,8 @@ class KBNowPlaying extends Component {
 }
 
 KBNowPlaying.propTypes = {
-  item: PropTypes.object
+  item: PropTypes.object,
+  isAdmin: PropTypes.bool
 }
 
 export default KBNowPlaying

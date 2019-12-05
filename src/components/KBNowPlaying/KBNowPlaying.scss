@@ -8,13 +8,21 @@
   align-content: center;
 }
 
+.kb-now-playing-empty {
+  color: $extra-light-grey;
+  padding-top: 60px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .kb-now-playing-panel {
   display: flex;
   flex-direction: column;
   background-color: $primary-green;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   margin: auto;
-  padding: 25px 25px 25px 25px;
+  padding: 25px 25px 10px 25px;
+  width: 300px;
 }
 
 .kb-now-playing-image {
@@ -36,6 +44,7 @@
   flex: none;
   color: white;
   font-weight: bold;
+  padding-bottom: 3px;
 }
 
 .kb-now-playing-artist-album-info {
@@ -44,16 +53,17 @@
 }
 
 .kb-now-playing-control-container {
-  padding: 15px 0px 0px 0px;
+  padding: 15px 0px 15px 0px;
   flex: none;
   display: flex;
   flex-direction: row;
 }
 
 .kb-now-playing-button {
-  padding: 0px 15px 0px 15px;
+  margin: 0px 15px 0px 15px;
   font-size: 30px;
   color: white;
+  cursor: pointer;
 }
 
 .kb-now-playing-button:hover {

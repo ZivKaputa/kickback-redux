@@ -11,7 +11,8 @@ import { createLogger } from 'redux-logger'
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import rootReducer from './reducers'
-import fetchItems from './actions/queue/fetchItems.js'
+import restoreUser from './actions/user/restoreUser.js'
+import restoreSession from './actions/session/restoreSession.js'
 
 const loggerMiddleware = createLogger()
 
@@ -23,8 +24,8 @@ const store = createStore(
   )
 )
 
-
-store.dispatch(fetchItems())
+store.dispatch(restoreUser())
+store.dispatch(restoreSession())
 
 ReactDOM.render(
   <Provider store={store}>

@@ -9,7 +9,7 @@ export default function fetchItems() {
     let requestedAt = Date.now()
     dispatch(requestItems(sessionId, requestedAt))
 
-    if (sessionId === "") {
+    if (!sessionId || sessionId === "") {
       dispatch(receiveItems(sessionId, requestedAt, []))
       dispatch(updateScrollPosition(0))
       return
