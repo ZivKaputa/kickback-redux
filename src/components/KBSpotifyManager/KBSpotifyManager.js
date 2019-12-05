@@ -28,6 +28,28 @@ function getHashValue(key) {
   return matches ? matches[1] : null;
 }
 
+// Uses the specified player to play the given track
+const play = ({
+  spotify_uri,
+  playerInstance: {
+    _options: {
+      getOAuthToken,
+      id
+    }
+  }
+}) => {
+  getOAuthToken(access_token => {
+    fetch(`https://api.spotify.com/v1/me/player/play?device_id=${id}`, {
+      method: 'PUT',
+      body: JSON.stringify({ uris: [spotify_uri] }),
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${access_token}`
+      },
+    });
+  });
+};
+
 // Wrapper component used to interact with Spotify and manage song playback
 class KBSpotifyManager extends React.Component {
 
@@ -37,6 +59,8 @@ class KBSpotifyManager extends React.Component {
     this.playSong = this.playSong.bind(this)
     this.pauseSong = this.pauseSong.bind(this)
     this.checkAuthorization = this.checkAuthorization.bind(this)
+    this.initializePlayer = this.initializePlayer.bind(this)
+    this.player = null
   }
 
   checkAuthorization() {
@@ -49,7 +73,33 @@ class KBSpotifyManager extends React.Component {
     window.location = authorizeURL
   }
 
-  playSong() {
+  initializePlayer() {
+    var player = new window.Spotify.Player({
+      name: 'Kickback Player',
+      getOAuthToken: callback => {
+        callback(this.props.accessToken)
+      },
+      volume: 0.5
+    })
+
+    player.addListener('ready', ({ device_id }) => {
+      player.id = device_id
+      this.player = player
+    })
+
+    player.connect().then(success => {
+      if (success) {
+        console.log('The Web Playback SDK successfully connected to Spotify!')
+      }
+    })
+  }
+
+  playSong(uri) {
+
+    play({
+      playerInstance: this.player,
+      spotify_uri: uri
+    })
 
   }
 
@@ -57,20 +107,43 @@ class KBSpotifyManager extends React.Component {
 
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    if (this.props.playerActive) {
+      if (this.player) {
+        if (nextProps.currentTrack && (!this.props.currentTrack || nextProps.currentTrack.id != this.props.currentTrack.id)) {
+          this.playSong(nextProps.currentTrack.uri)
+        }
+      }
+    }
+    return true;
+  }
+
   render() {
 
-    // Token request was succesful, parse token from URL
-    const accessToken = getHashValue('access_token')
-    if (accessToken) {
-      this.props.updateAccessToken(accessToken)
-      window.history.replaceState(null, null, '/')
-      return null
-    }
+    if (this.props.playerActive) {
+
+      if (window.Spotify && !this.player) {
+        this.initializePlayer()
+      } else if (!window.Spotify && !this.player) {
+        window.onSpotifyWebPlaybackSDKReady = () => {
+          this.initializePlayer()
+        }
+      }
+
+      // Token request was succesful, parse token from URL
+      const accessToken = getHashValue('access_token')
+      if (accessToken) {
+        this.props.updateAccessToken(accessToken)
+        window.history.replaceState(null, null, '/')
+        return null
+      }
 
 
-    // No token currently stored, need to request a new token
-    if (!this.props.accessToken && this.props.playerActive) {
-      this.handleAuthorization()
+      // No token currently stored, need to request a new token
+      if (!this.props.accessToken && this.props.playerActive) {
+        this.handleAuthorization()
+      }
+
     }
 
     return null
@@ -82,7 +155,8 @@ class KBSpotifyManager extends React.Component {
 KBSpotifyManager.propTypes = {
   accessToken: PropTypes.string,
   updateAccessToken: PropTypes.func,
-  playerActive: PropTypes.bool
+  playerActive: PropTypes.bool,
+  currentUri: PropTypes.string
 }
 
 export default KBSpotifyManager

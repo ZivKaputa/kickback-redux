@@ -113,7 +113,7 @@ class KBMenuPrimaryView extends Component {
           let username = Object.keys(rawUserData)[0]
           let userInfo = rawUserData[username]
           return (
-            <div className='kb-following'>
+            <div className='kb-following' key={username}>
               <div className='kb-following-username'>{username}</div>
               {userInfo.session_id ? <div className='kb-following-session-header'>Current Session</div> : null}
               {userInfo.session_id ? (
