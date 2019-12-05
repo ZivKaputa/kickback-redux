@@ -13,6 +13,20 @@ import { Provider } from 'react-redux'
 import rootReducer from './reducers'
 import restoreUser from './actions/user/restoreUser.js'
 import restoreSession from './actions/session/restoreSession.js'
+import fetchChat from './actions/chat/fetchChat.js'
+import fetchItems from './actions/queue/fetchItems.js'
+import {initializeSocket} from './utilities/socket-context'
+
+let socket = initializeSocket()
+
+socket.on('update', msg => {
+  if (msg === 'queue') {
+    store.dispatch(fetchItems())
+  }
+  if (msg === 'chat') {
+    store.dispatch(fetchChat())
+  }
+})
 
 const loggerMiddleware = createLogger()
 

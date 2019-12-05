@@ -5,6 +5,7 @@ import KBNowPlayingContainer from '../../containers/KBNowPlayingContainer'
 import KBSearchResultListContainer from '../../containers/KBSearchResultListContainer'
 import KBControlPanelNavBarContainer from '../../containers/KBControlPanelNavBarContainer'
 import KBMenuContainer from '../../containers/KBMenuContainer'
+import KBChatContainer from '../../containers/KBChatContainer'
 import {tabs} from '../../reducers/tab/current.js'
 import './KBControlPanel.scss'
 
@@ -30,7 +31,7 @@ export class KBControlPanel extends Component {
     }
 
     const menu = this.props.isMenuOpen ? <KBMenuContainer/> : null
-    const chat = this.props.isChatOpen ? <div className='kb-right-control'/> : null
+    const chat = this.props.isChatOpen ? <KBChatContainer/> : null
 
     return (
       <div className='kb-control-panel'>

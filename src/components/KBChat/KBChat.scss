@@ -1,0 +1,41 @@
+@import '../../utilities/variables.scss';
+
+.kb-chat {
+  width: 300px;
+  background-color: $dark-grey-9;
+  border-left: 1px solid $dark-grey-10;
+  display: flex;
+  flex-direction: column;
+  flex: none;
+  color: white;
+}
+
+.kb-chat-title {
+  flex: none;
+  padding: 10px 15px 10px 15px;
+  text-align: left;
+  color: $extra-light-grey;
+  border-bottom: 1px solid $dark-grey-10;
+  margin-bottom: 4px;
+}
+
+.kb-chat-list-container {
+  flex: auto;
+  min-height: 0px;
+  overflow: scroll;
+}
+
+.kb-chat-message-title {
+  color: $primary-green;
+  font-weight: bold;
+}
+
+.kb-chat-message-box {
+  padding: 5px;
+  margin: 5px;
+  background-color: $extra-light-grey;
+  color: black;
+  font-size: 12px;
+  text-align: left;
+  border-radius: 5px;
+}

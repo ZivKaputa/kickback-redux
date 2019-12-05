@@ -4,9 +4,12 @@
   flex: auto;
   display: flex;
   flex-direction: column;
+  min-height: 0px;
+  overflow: scroll;
 }
 
 .kb-menu-primary-view-section {
+  min-height: 0px;
   padding: 4px 0px 4px 0px;
   margin: 0px 8px 0px 8px;
   flex: none;
