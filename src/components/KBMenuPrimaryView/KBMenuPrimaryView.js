@@ -129,7 +129,7 @@ class KBMenuPrimaryView extends Component {
               <div className='kb-following-controls'>
                 {userInfo.session_id ? (
                   <span>
-                    <a className='kb-menu-link' onClick={() => this.props.updateSession(userInfo.session_id, userInfo.session_name)}>Join Session</a>
+                    <a className='kb-menu-link' onClick={() => this.props.joinSession(userInfo.session_id)}>Join Session</a>
                     <span> • </span>
                   </span>
                 ) : null}
@@ -168,6 +168,7 @@ KBMenuPrimaryView.propTypes = {
   logout: PropTypes.func,
   leaveSession: PropTypes.func,
   updateSession: PropTypes.func,
+  joinSession: PropTypes.func,
   deleteMySession: PropTypes.func,
   deleteAccount: PropTypes.func,
   username: PropTypes.string,

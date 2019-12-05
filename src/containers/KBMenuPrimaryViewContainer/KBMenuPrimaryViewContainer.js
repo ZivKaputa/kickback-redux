@@ -5,6 +5,8 @@ import updateUser from '../../actions/user/updateUser'
 import deleteOwnedSession from '../../actions/user/deleteOwnedSession'
 import updateSession from '../../actions/session/updateSession'
 import unfollowUser from '../../actions/user/unfollowUser'
+import updateMenuFormField from '../../actions/menu/updateMenuFormField'
+import { views } from '../../reducers/menu/currentView'
 
 const mapStateToProps = state => {
   return {
@@ -27,6 +29,10 @@ const mapDispatchToProps = dispatch => {
     },
     leaveSession: () => {
       dispatch(updateSession(null, null))
+    },
+    joinSession: (sessionID) => {
+      dispatch(updateCurrentMenuView(views.JOIN))
+      dispatch(updateMenuFormField('sessionID', sessionID))
     },
     updateSession: (sessionID, sessionName) => {
       dispatch(updateSession(sessionID, sessionName))

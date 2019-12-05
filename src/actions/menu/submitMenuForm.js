@@ -47,7 +47,6 @@ export default function submitMenuForm(formInfo) {
 
     function handle(promise) {
       promise().then(function(response) {
-        console.log('ASHJBDASHDKASBKHDBJASD')
         handleError(formInfo, response)
         return response
       }).then(function(response) {
@@ -72,8 +71,10 @@ export default function submitMenuForm(formInfo) {
             break
           case views.CREATE:
           case views.JOIN:
-            response = JSON.parse(response)
-            dispatch(updateSession(safeNull(response.session_id), safeNull(response.session_name)))
+            response.text().then(text => {
+              response = JSON.parse(text)
+              dispatch(updateSession(safeNull(response.session_id), safeNull(response.session_name)))
+            })
             break
           default:
             break
