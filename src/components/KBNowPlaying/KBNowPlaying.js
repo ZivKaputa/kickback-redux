@@ -33,10 +33,14 @@ class KBNowPlaying extends Component {
             <div className='kb-now-playing-control-container'>
               <div className='flex-padding'/>
               <div className='kb-now-playing-button'>
-                <MDBIcon icon='pause'/>
+                { this.props.isPlaying ? (
+                  <span onClick={this.props.pause}><MDBIcon icon='pause'/></span>
+                ) : (
+                  <span onClick={this.props.play}><MDBIcon icon='play'/></span>
+                )}
               </div>
               <div className='kb-now-playing-button'>
-                <MDBIcon icon='step-forward'/>
+                <span onClick={this.props.skipSong}><MDBIcon icon='step-forward'/></span>
               </div>
               <div className='flex-padding'/>
             </div>
@@ -50,7 +54,11 @@ class KBNowPlaying extends Component {
 
 KBNowPlaying.propTypes = {
   item: PropTypes.object,
-  isAdmin: PropTypes.bool
+  isAdmin: PropTypes.bool,
+  isPlaying: PropTypes.bool,
+  play: PropTypes.func,
+  pause: PropTypes.func,
+  skipSong: PropTypes.func
 }
 
 export default KBNowPlaying

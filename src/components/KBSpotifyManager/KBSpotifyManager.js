@@ -6,7 +6,7 @@ import SpotifyWebApi from 'spotify-web-api-node'
 const authEndpoint = 'https://accounts.spotify.com/authorize'
 const clientId = "c7068e47edfd40ce947f93adfc20eb96"
 const redirectUri = "http://localhost:3000"
-// const redirectUri = "http://www.kickback.group"
+// const redirectUri = "https://zivkaputa.github.io/kickback-redux"
 const scopes = [
   "user-read-currently-playing",
   "user-read-playback-state",
@@ -61,6 +61,8 @@ class KBSpotifyManager extends React.Component {
     this.checkAuthorization = this.checkAuthorization.bind(this)
     this.initializePlayer = this.initializePlayer.bind(this)
     this.player = null
+    this.fresh = true
+    this.lastSong = null;
   }
 
   checkAuthorization() {
@@ -83,8 +85,16 @@ class KBSpotifyManager extends React.Component {
     })
 
     player.addListener('ready', ({ device_id }) => {
-      player.id = device_id
       this.player = player
+    })
+
+    player.addListener('player_state_changed', spotifyPlayerState => {
+      if (spotifyPlayerState.position === 0 && spotifyPlayerState.paused && this.props.isPlaying) {
+        if (this.props.currentTrack && (this.lastSong != this.props.currentTrack.id)) {
+          this.lastSong = this.props.currentTrack.id
+          this.props.skipSong()
+        }
+      }
     })
 
     player.connect().then(success => {
@@ -94,25 +104,47 @@ class KBSpotifyManager extends React.Component {
     })
   }
 
-  playSong(uri) {
+  playSong(uri, playFromStart) {
 
-    play({
-      playerInstance: this.player,
-      spotify_uri: uri
-    })
+    if (playFromStart) {
+      play({
+        playerInstance: this.player,
+        spotify_uri: uri
+      })
+    } else {
+      this.player.resume().then(() => {
+        console.log('Resumed!');
+      })
+    }
 
   }
 
   pauseSong() {
-
+    this.player.pause().then(() => {
+      console.log('Paused!');
+    });
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    if (this.props.playerActive) {
-      if (this.player) {
-        if (nextProps.currentTrack && (!this.props.currentTrack || nextProps.currentTrack.id != this.props.currentTrack.id)) {
-          this.playSong(nextProps.currentTrack.uri)
-        }
+
+    if (this.player && (!nextProps.currentTrack || !this.props.playerActive)) {
+      this.pauseSong()
+      this.props.setPaused()
+    } else if (this.player && this.props.playerActive) {
+      // Load a new song
+      let isNewSong = (!nextProps.currentTrack || !this.props.currentTrack || (nextProps.currentTrack.id != this.props.currentTrack.id))
+      if (isNewSong) {
+        this.fresh = true
+      }
+      if (nextProps.isPlaying && nextProps.currentTrack && (isNewSong || this.fresh)) {
+        this.playSong(nextProps.currentTrack.uri, true)
+        this.fresh = false;
+      // Continue current song
+      } else if (nextProps.currentTrack && nextProps.isPlaying) {
+        this.playSong(null, false)
+      // Pause current song
+      } else if (nextProps.currentTrack && !nextProps.isPlaying) {
+        this.pauseSong()
       }
     }
     return true;
@@ -134,7 +166,7 @@ class KBSpotifyManager extends React.Component {
       const accessToken = getHashValue('access_token')
       if (accessToken) {
         this.props.updateAccessToken(accessToken)
-        window.history.replaceState(null, null, '/')
+        window.history.replaceState(null, null, '/kickback-redux')
         return null
       }
 
@@ -156,7 +188,10 @@ KBSpotifyManager.propTypes = {
   accessToken: PropTypes.string,
   updateAccessToken: PropTypes.func,
   playerActive: PropTypes.bool,
-  currentUri: PropTypes.string
+  currentTrack: PropTypes.object,
+  isPlaying: PropTypes.bool,
+  skipSong: PropTypes.func,
+  setPaused: PropTypes.func
 }
 
 export default KBSpotifyManager

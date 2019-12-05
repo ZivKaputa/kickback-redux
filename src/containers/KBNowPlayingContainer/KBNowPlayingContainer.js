@@ -1,5 +1,7 @@
 import { connect } from 'react-redux'
 import KBNowPlaying from '../../components/KBNowPlaying'
+import updateIsPlaying from '../../actions/spotify/updateIsPlaying'
+import skipSong from '../../actions/spotify/skipSong'
 
 const mapStateToProps = state => {
   var item = null
@@ -11,12 +13,22 @@ const mapStateToProps = state => {
 
   return {
     item,
-    isAdmin
+    isAdmin,
+    isPlaying: state.spotify.isPlaying
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
+    play: () => {
+      dispatch(updateIsPlaying(true))
+    },
+    pause: () => {
+      dispatch(updateIsPlaying(false))
+    },
+    skipSong: () => {
+      dispatch(skipSong())
+    }
   }
 }
 

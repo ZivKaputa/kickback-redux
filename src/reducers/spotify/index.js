@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux'
 import accessToken from './accessToken.js'
+import isPlaying from './isPlaying.js'
 
 const spotify = combineReducers({
-  accessToken
+  accessToken,
+  isPlaying
 })
 
 export default spotify
