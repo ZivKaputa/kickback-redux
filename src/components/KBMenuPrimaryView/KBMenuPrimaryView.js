@@ -27,7 +27,7 @@ class KBMenuPrimaryView extends Component {
               <a className='kb-menu-link' onClick={() => {this.props.updateView(views.JOIN)}}>Join</a>
               <span> • </span>
               <a className='kb-menu-link' onClick={() => {this.props.updateView(views.LOGIN)}}>Log In</a>
-              <span> (to Create)</span>
+              <span> to Create</span>
             </span>
           )
         }
@@ -50,7 +50,11 @@ class KBMenuPrimaryView extends Component {
     )
     const DEFAULT_FOLLOWING_LIST_CONTENT = (
       <div className='kb-menu-primary-bottom-controls'>
-        <a className='kb-menu-link' onClick={() => {this.props.updateView(views.ADD_FOLLOWER)}}>Follow a New User</a>
+        {this.props.username ? (
+          <a className='kb-menu-link' onClick={() => {this.props.updateView(views.ADD_FOLLOWER)}}>Follow a New User</a>
+        ) : (
+          <span><a className='kb-menu-link' onClick={() => {this.props.updateView(views.LOGIN)}}>Log In</a><span> to Follow Users</span></span>
+        )}
       </div>
     )
 
