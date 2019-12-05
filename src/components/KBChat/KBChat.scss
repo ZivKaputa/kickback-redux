@@ -21,6 +21,8 @@
 
 .kb-chat-list-container {
   flex: auto;
+  display: flex;
+  flex-direction: column;
   min-height: 0px;
   overflow: scroll;
 }
@@ -30,12 +32,22 @@
   font-weight: bold;
 }
 
+.kb-chat-top-spacer {
+  flex: auto;
+}
+
 .kb-chat-message-box {
-  padding: 5px;
-  margin: 5px;
+  flex: none;
+  padding: 6px;
+  margin: 3px 8px 3px 8px;
   background-color: $extra-light-grey;
   color: black;
   font-size: 12px;
   text-align: left;
   border-radius: 5px;
+}
+
+.kb-control-container {
+  flex: none;
+  padding: 6px;
 }

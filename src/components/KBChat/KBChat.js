@@ -21,8 +21,10 @@ class KBChat extends Component {
           Chat
         </div>
         <div className='kb-chat-list-container'>
+          <div className='kb-chat-top-spacer'/>
           {chatList}
         </div>
+        
       </div>
     )
   }

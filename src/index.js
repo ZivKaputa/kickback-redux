@@ -15,6 +15,7 @@ import restoreUser from './actions/user/restoreUser.js'
 import restoreSession from './actions/session/restoreSession.js'
 import fetchChat from './actions/chat/fetchChat.js'
 import fetchItems from './actions/queue/fetchItems.js'
+import fetchFollowing from './actions/user/fetchFollowing.js'
 import {initializeSocket} from './utilities/socket-context'
 
 let socket = initializeSocket()
@@ -25,6 +26,9 @@ socket.on('update', msg => {
   }
   if (msg === 'chat') {
     store.dispatch(fetchChat())
+  }
+  if (msg === 'followers') {
+    store.dispatch(fetchFollowing())
   }
 })
 
