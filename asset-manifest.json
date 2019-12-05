@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/kickback-redux/static/css/main.af936343.chunk.css",
-    "main.js": "/kickback-redux/static/js/main.1a85bb55.chunk.js",
-    "main.js.map": "/kickback-redux/static/js/main.1a85bb55.chunk.js.map",
+    "main.js": "/kickback-redux/static/js/main.6d6945df.chunk.js",
+    "main.js.map": "/kickback-redux/static/js/main.6d6945df.chunk.js.map",
     "runtime-main.js": "/kickback-redux/static/js/runtime-main.9aa9eb85.js",
     "runtime-main.js.map": "/kickback-redux/static/js/runtime-main.9aa9eb85.js.map",
     "static/css/2.76a74555.chunk.css": "/kickback-redux/static/css/2.76a74555.chunk.css",
     "static/js/2.6c153c98.chunk.js": "/kickback-redux/static/js/2.6c153c98.chunk.js",
     "static/js/2.6c153c98.chunk.js.map": "/kickback-redux/static/js/2.6c153c98.chunk.js.map",
     "index.html": "/kickback-redux/index.html",
-    "precache-manifest.98fc98d7a6a31efcbf4b6386c84a5532.js": "/kickback-redux/precache-manifest.98fc98d7a6a31efcbf4b6386c84a5532.js",
+    "precache-manifest.09b42d2709fd1b9d2817dcef3905d54c.js": "/kickback-redux/precache-manifest.09b42d2709fd1b9d2817dcef3905d54c.js",
     "service-worker.js": "/kickback-redux/service-worker.js",
     "static/css/2.76a74555.chunk.css.map": "/kickback-redux/static/css/2.76a74555.chunk.css.map",
     "static/css/main.af936343.chunk.css.map": "/kickback-redux/static/css/main.af936343.chunk.css.map",
@@ -22,6 +22,6 @@
     "static/css/2.76a74555.chunk.css",
     "static/js/2.6c153c98.chunk.js",
     "static/css/main.af936343.chunk.css",
-    "static/js/main.1a85bb55.chunk.js"
+    "static/js/main.6d6945df.chunk.js"
   ]
 }
