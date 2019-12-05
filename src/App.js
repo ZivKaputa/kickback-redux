@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import logo from './logo.svg'
 import KBControlPanelContainer from './containers/KBControlPanelContainer'
 import KBNavBar from './components/KBNavBar'
+import KBSpotifyManagerContainer from './containers/KBSpotifyManagerContainer'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import './App.scss'
@@ -11,6 +12,7 @@ class App extends Component {
 
     return (
       <div className="App">
+        <KBSpotifyManagerContainer/>
         <KBNavBar type='primary'>Kickback</KBNavBar>
         <KBControlPanelContainer/>
         <ToastContainer

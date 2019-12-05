@@ -12,7 +12,6 @@ export default function submitMenuForm(formInfo) {
     const BASE_URL = 'https://frabric.herokuapp.com/'
     var url = null;
 
-
     // Build form submission url based on form inputs
     switch (formInfo.id) {
       case views.LOGIN:
