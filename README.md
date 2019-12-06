@@ -1,3 +1,9 @@
+## Kickback Frontend
+
+### Overview
+
+This is the React frontend for Kickback, a group music queue and chat application. The frontend of the project was developed by Sameer Jain and Ziv Kaputa.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
