@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "19a6b262f29cbfd416722be97f411010",
+    "revision": "e69b24d837524c7a7c3f11f96cdfd5e9",
     "url": "/kickback-redux/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/kickback-redux/static/css/2.76a74555.chunk.css"
   },
   {
-    "revision": "e8544d494772b1acb056",
+    "revision": "fca49bae26f0a52ef865",
     "url": "/kickback-redux/static/css/main.fb85ed2b.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/kickback-redux/static/js/2.3deb4c35.chunk.js"
   },
   {
-    "revision": "e8544d494772b1acb056",
-    "url": "/kickback-redux/static/js/main.4bea8775.chunk.js"
+    "revision": "fca49bae26f0a52ef865",
+    "url": "/kickback-redux/static/js/main.ca3b0082.chunk.js"
   },
   {
     "revision": "7b2fdcca5119a681396c",
